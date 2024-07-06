@@ -1,15 +1,11 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion COMPILE_SDK_VERSION as int
-    buildToolsVersion BUILD_TOOLS_VERSION
+    compileSdkVersion 34
+
 
     defaultConfig {
-        minSdkVersion MIN_SDK_VERSION as int
-        targetSdkVersion TARGET_SDK_VERSION as int
-        versionCode VERSION_CODE as int
-        versionName VERSION_NAME
+        minSdkVersion 21
     }
     buildTypes {
         release {
@@ -17,19 +13,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    namespace 'com.nshmura.recyclertablayout'
 }
 
 dependencies {
-    compile "com.android.support:appcompat-v7:$SUPPORT_LIB_VERSION"
-    compile "com.android.support:recyclerview-v7:$SUPPORT_LIB_VERSION"
-}
-
-publish {
-    userOrg = POM_DEVELOPER_ID
-    groupId = GROUP
-    artifactId = ARTIFACT_ID
-    uploadName = ARTIFACT_NAME
-    publishVersion = VERSION_NAME
-    desc = POM_DESCRIPTION
-    website = POM_URL
+    api 'androidx.appcompat:appcompat:1.7.0'
+    api 'androidx.recyclerview:recyclerview:1.3.0'
+    api "androidx.viewpager2:viewpager2:1.0.0"
+//    implementation "com.android.support:appcompat-v7:$SUPPORT_LIB_VERSION"
+//    implementation "com.android.support:recyclerview-v7:$SUPPORT_LIB_VERSION"
 }

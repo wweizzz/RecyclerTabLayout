@@ -1,19 +1,20 @@
 package com.nshmura.recyclertablayout.demo.customview01;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
+
 import com.nshmura.recyclertablayout.RecyclerTabLayout;
 import com.nshmura.recyclertablayout.demo.ColorItem;
 import com.nshmura.recyclertablayout.demo.Demo;
 import com.nshmura.recyclertablayout.demo.DemoColorPagerAdapter;
 import com.nshmura.recyclertablayout.demo.R;
 import com.nshmura.recyclertablayout.demo.utils.DemoData;
-
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -56,12 +57,12 @@ public class DemoCustomView01Activity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
 
         RecyclerTabLayout recyclerTabLayout = findViewById(R.id.recycler_tab_layout);
-        recyclerTabLayout.setUpWithAdapter(new DemoCustomView01Adapter(viewPager));
+        recyclerTabLayout.setUpWithAdapter(new DemoCustomView01AdapterRecycler(viewPager), viewPager);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()) {
+        switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
                 return true;

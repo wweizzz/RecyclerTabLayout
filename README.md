@@ -1,19 +1,25 @@
 # RecyclerTabLayout
+
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-RecyclerTabLayout-green.svg?style=flat)](https://android-arsenal.com/details/1/2220)
 
 An efficient TabLayout library implemented with RecyclerView.
 
 ## Features
+
 - Efficient when having many tabs
 - Easy setup with ViewPager (same as [TabLayout](http://developer.android.com/intl/ja/reference/android/support/design/widget/TabLayout.html) of Android Design Support Library)
+- Easy setup with ViewPager (same
+  as [TabLayout](http://developer.android.com/intl/ja/reference/android/support/design/widget/TabLayout.html)
+  of Android Design Support Library)
 - RTL layout support
 
 ## UseCase
+
 - Many tabs layout
 - Infinite loop scrolling (imitated)
 
-
 ## Demos
+
 ![Years](art/years.gif)
 
 ![Loop](art/loop.gif)
@@ -22,11 +28,12 @@ An efficient TabLayout library implemented with RecyclerView.
 
 ![Icon](art/icon.gif)
 
-
 ## Samples
+
 <a href="https://play.google.com/store/apps/details?id=com.nshmura.recyclertablayout.demo"><img src="art/googleplay.png"/></a>
 
 ## Getting started
+
 In your build.gradle:
 
 ```
@@ -40,6 +47,7 @@ dependencies {
 ```
 
 Define `RecyclerTabLayout` in xml layout with custom attributes.
+
 ```xml
 <com.nshmura.recyclertablayout.RecyclerTabLayout
         android:id="@+id/recycler_tab_layout"
@@ -60,24 +68,27 @@ Define `RecyclerTabLayout` in xml layout with custom attributes.
 ```
 
 Set up with the ViewPager.
+
 ```java
 ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
-viewPager.setAdapter(adapter);
+viewPager.setAdapter(recyclerTabAdapter);
 
 RecyclerTabLayout recyclerTabLayout = (RecyclerTabLayout) findViewById(R.id.recycler_tab_layout);
 recyclerTabLayout.setUpWithViewPager(viewPager);
 ```
 
 Or set up with ViewPager and Custom RecyclerView.Adapter that's extends `RecyclerTabLayout.Adapter`.
+
 ```java
 ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
-viewPager.setAdapter(adapter);
+viewPager.setAdapter(recyclerTabAdapter);
 
 RecyclerTabLayout recyclerTabLayout = (RecyclerTabLayout) findViewById(R.id.recycler_tab_layout);
 recyclerTabLayout.setUpWithAdapter(new CustomRecyclerViewAdapter(viewPager));
 ```
 
-Here's sample of custom RecyclerView adapter.
+Here's sample of custom RecyclerView recyclerTabAdapter.
+
 ```java
 public class CustomRecyclerViewAdapter extends RecyclerTabLayout.Adapter<CustomRecyclerViewAdapter.ViewHolder> {
 
@@ -114,29 +125,29 @@ public class CustomRecyclerViewAdapter extends RecyclerTabLayout.Adapter<CustomR
 }
 ```
 
-
 ## Attributes
-| attr  | description |
-| ------------- | ------------- |
-| rtl_tabIndicatorColor    | Indicator color |
-| rtl_tabIndicatorHeight   | Indicator height | 
-| rtl_tabBackground        | Background drawable of each tab |
-| rtl_tabTextAppearance    | TextAppearence of each tab |
-| rtl_tabSelectedTextColor | Text color of selected tab |
+
+| attr                     | description                                                                                                       |
+|--------------------------|-------------------------------------------------------------------------------------------------------------------|
+| rtl_tabIndicatorColor    | Indicator color                                                                                                   |
+| rtl_tabIndicatorHeight   | Indicator height                                                                                                  | 
+| rtl_tabBackground        | Background drawable of each tab                                                                                   |
+| rtl_tabTextAppearance    | TextAppearence of each tab                                                                                        |
+| rtl_tabSelectedTextColor | Text color of selected tab                                                                                        |
 | rtl_tabOnScreenLimit     | The number of OnScreen tabs. If this value is larger than 0, `rtl_tabMinWidth` and `rtl_tabMaxWidth` are ignored. |
-| rtl_tabMinWidth          | Minimum width of each tab |
-| rtl_tabMaxWidth          | Maximum width of each tab |
-| rtl_tabPaddingStart      | The padding of the start edge of each tab |
-| rtl_tabPaddingTop        | The padding of the top edge of each tab  |
-| rtl_tabPaddingEnd        | The padding of the end edge of each tab  |
-| rtl_tabPaddingBottom     | The padding of the bottom edge of each tab |
-| rtl_tabPadding           | The padding of all four edges of each tab |
-| rtl_scrollEnabled        | Sets whether tab scrolling is enabled |
+| rtl_tabMinWidth          | Minimum width of each tab                                                                                         |
+| rtl_tabMaxWidth          | Maximum width of each tab                                                                                         |
+| rtl_tabPaddingStart      | The padding of the start edge of each tab                                                                         |
+| rtl_tabPaddingTop        | The padding of the top edge of each tab                                                                           |
+| rtl_tabPaddingEnd        | The padding of the end edge of each tab                                                                           |
+| rtl_tabPaddingBottom     | The padding of the bottom edge of each tab                                                                        |
+| rtl_tabPadding           | The padding of all four edges of each tab                                                                         |
+| rtl_scrollEnabled        | Sets whether tab scrolling is enabled                                                                             |
 
 [default attribute](library/src/main/res/values/styles.xml)
 
-
 ## Thanks
+
 The demo app uses the following resources.
 
 color-names by codebrainz<br/>
@@ -146,6 +157,7 @@ Material Design icons by Google<br/>
 https://github.com/google/material-design-icons
 
 ## License
+
 ```
 Copyright (C) 2017 nshmura
 
