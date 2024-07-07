@@ -1,13 +1,6 @@
 package com.nshmura.recyclertablayout.demo.customview01;
 
-import com.nshmura.recyclertablayout.RecyclerTabLayout;
-import com.nshmura.recyclertablayout.demo.ColorItem;
-import com.nshmura.recyclertablayout.demo.DemoColorPagerAdapter;
-import com.nshmura.recyclertablayout.demo.R;
-
 import android.graphics.Typeface;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
@@ -15,15 +8,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.nshmura.recyclertablayout.adapter.RecyclerTabAdapter;
+import com.nshmura.recyclertablayout.demo.ColorItem;
+import com.nshmura.recyclertablayout.demo.DemoColorPagerAdapter;
+import com.nshmura.recyclertablayout.demo.R;
+
+import androidx.viewpager.widget.ViewPager;
+
 /**
  * Created by Shinichi Nishimura on 2015/07/22.
  */
-public class DemoCustomView01Adapter extends RecyclerTabLayout.Adapter<DemoCustomView01Adapter.ViewHolder> {
+public class DemoCustomView01Adapter extends RecyclerTabAdapter<DemoCustomView01Adapter.ViewHolder> {
 
+    private ViewPager mViewPager;
     private DemoColorPagerAdapter mAdapater;
 
     public DemoCustomView01Adapter(ViewPager viewPager) {
-        super(viewPager);
+        mViewPager = viewPager;
         mAdapater = (DemoColorPagerAdapter) mViewPager.getAdapter();
     }
 
@@ -65,7 +68,7 @@ public class DemoCustomView01Adapter extends RecyclerTabLayout.Adapter<DemoCusto
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    getViewPager().setCurrentItem(getAdapterPosition());
+                    mViewPager.setCurrentItem(getAdapterPosition());
                 }
             });
         }

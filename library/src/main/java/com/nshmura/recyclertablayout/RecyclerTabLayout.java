@@ -91,7 +91,7 @@ public class RecyclerTabLayout extends RecyclerView implements IRecyclerTabLayou
         super(context, attrs, defStyle);
         setWillNotDraw(false);
         mIndicatorPaint = new Paint();
-        //getAttributes(context, attrs, defStyle);
+        getAttributes(context, attrs, defStyle);
         mLinearLayoutManager = new LinearLayoutManager(getContext()) {
             @Override
             public boolean canScrollHorizontally() {

@@ -44,7 +44,7 @@ public class DemoCustomView02Activity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
 
         RecyclerTabLayout recyclerTabLayout = findViewById(R.id.recycler_tab_layout);
-        recyclerTabLayout.setUpWithAdapter(new DemoCustomView02AdapterRecycler(viewPager), viewPager);
+        recyclerTabLayout.setUpWithAdapter(new DemoCustomView02Adapter(viewPager), viewPager);
         recyclerTabLayout.setPositionThreshold(0.5f);
     }
 

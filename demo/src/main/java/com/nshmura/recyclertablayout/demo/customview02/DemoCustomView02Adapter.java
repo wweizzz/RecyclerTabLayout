@@ -1,32 +1,34 @@
 package com.nshmura.recyclertablayout.demo.customview02;
 
-import com.nshmura.recyclertablayout.RecyclerTabLayout;
+import com.nshmura.recyclertablayout.adapter.RecyclerTabAdapter;
 import com.nshmura.recyclertablayout.demo.DemoImagePagerAdapter;
 import com.nshmura.recyclertablayout.demo.R;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.DrawableRes;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.annotation.DrawableRes;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
+
 /**
  * Created by Shinichi Nishimura on 2015/07/22.
  */
 public class DemoCustomView02Adapter
-        extends RecyclerTabLayout.Adapter<DemoCustomView02Adapter.ViewHolder> {
+        extends RecyclerTabAdapter<DemoCustomView02Adapter.ViewHolder> {
 
+    private ViewPager mViewPager;
     private DemoImagePagerAdapter mAdapater;
 
     public DemoCustomView02Adapter(ViewPager viewPager) {
-        super(viewPager);
+        mViewPager = viewPager;
         mAdapater = (DemoImagePagerAdapter) mViewPager.getAdapter();
     }
 
@@ -49,7 +51,7 @@ public class DemoCustomView02Adapter
     private Drawable loadIconWithTint(Context context, @DrawableRes int resourceId) {
         Drawable icon = ContextCompat.getDrawable(context, resourceId);
         ColorStateList colorStateList = ContextCompat
-                .getColorStateList(context,R.color.custom_view02_tint);
+                .getColorStateList(context, R.color.custom_view02_tint);
         icon = DrawableCompat.wrap(icon);
         DrawableCompat.setTintList(icon, colorStateList);
         return icon;
@@ -71,7 +73,7 @@ public class DemoCustomView02Adapter
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    getViewPager().setCurrentItem(getAdapterPosition());
+                    mViewPager.setCurrentItem(getAdapterPosition());
                 }
             });
         }

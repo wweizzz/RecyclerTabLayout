@@ -57,7 +57,7 @@ public class DemoCustomView01Activity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
 
         RecyclerTabLayout recyclerTabLayout = findViewById(R.id.recycler_tab_layout);
-        recyclerTabLayout.setUpWithAdapter(new DemoCustomView01AdapterRecycler(viewPager), viewPager);
+        recyclerTabLayout.setUpWithAdapter(new DemoCustomView01Adapter(viewPager), viewPager);
     }
 
     @Override
