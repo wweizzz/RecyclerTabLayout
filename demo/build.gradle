@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+    namespace 'com.nshmura.recyclertablayout.demo'
     compileSdkVersion COMPILE_SDK_VERSION as int
     buildToolsVersion BUILD_TOOLS_VERSION
 
@@ -33,7 +34,7 @@ android {
 }
 
 dependencies {
-    compile project(':library')
+    implementation project(':library')
     //compile "com.nshmura:recyclertablayout:$VERSION_NAME"
-    compile "com.android.support:appcompat-v7:$SUPPORT_LIB_VERSION"
+    implementation "com.android.support:appcompat-v7:$SUPPORT_LIB_VERSION"
 }

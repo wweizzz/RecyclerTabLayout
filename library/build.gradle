@@ -1,7 +1,8 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+//apply plugin: 'com.novoda.bintray-release'
 
 android {
+    namespace "com.nshmura.recyclertablayout"
     compileSdkVersion COMPILE_SDK_VERSION as int
     buildToolsVersion BUILD_TOOLS_VERSION
 
@@ -20,16 +21,16 @@ android {
 }
 
 dependencies {
-    compile "com.android.support:appcompat-v7:$SUPPORT_LIB_VERSION"
-    compile "com.android.support:recyclerview-v7:$SUPPORT_LIB_VERSION"
+    implementation "com.android.support:appcompat-v7:$SUPPORT_LIB_VERSION"
+    implementation "com.android.support:recyclerview-v7:$SUPPORT_LIB_VERSION"
 }
 
-publish {
-    userOrg = POM_DEVELOPER_ID
-    groupId = GROUP
-    artifactId = ARTIFACT_ID
-    uploadName = ARTIFACT_NAME
-    publishVersion = VERSION_NAME
-    desc = POM_DESCRIPTION
-    website = POM_URL
-}
+//publish {
+//    userOrg = POM_DEVELOPER_ID
+//    groupId = GROUP
+//    artifactId = ARTIFACT_ID
+//    uploadName = ARTIFACT_NAME
+//    publishVersion = VERSION_NAME
+//    desc = POM_DESCRIPTION
+//    website = POM_URL
+//}
